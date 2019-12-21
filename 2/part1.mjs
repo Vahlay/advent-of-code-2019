@@ -1,3 +1,6 @@
+import * as Fs from 'fs';
+import * as Os from 'os';
+
 /**
  * Execute an OPcode on 2 values and return the result
  * 
@@ -42,9 +45,12 @@ function run_intcode(program,address = 0){
     return instructionResult !== null ? run_intcode(instructionResult,address + 4) : program;
 }
 
-console.log(run_intcode([1,0,0,0,99]));
-console.log(run_intcode([2,3,0,3,99]));
-console.log(run_intcode([2,4,4,5,99,0]));
-console.log(run_intcode([1,1,1,4,99,5,6,0,99]));
 
+const program = Fs.readFileSync('./2/input','utf-8')
+                .split(',')
+                .map(numAsStr => parseInt(numAsStr)) //Directly passing parseInt to map() causes some of the number to be parsed as NaN
 
+program[1] = 12;
+program[2] = 2;
+
+console.log(run_intcode(program)[0]);
