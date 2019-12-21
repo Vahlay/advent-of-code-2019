@@ -1,5 +1,4 @@
 import * as Fs from 'fs';
-import * as Os from 'os';
 
 /**
  * Execute an OPcode on 2 values and return the result
@@ -54,3 +53,5 @@ program[1] = 12;
 program[2] = 2;
 
 console.log(run_intcode(program)[0]);
+
+export {run_intcode};
