@@ -52,6 +52,6 @@ const program = Fs.readFileSync('./2/input','utf-8')
 program[1] = 12;
 program[2] = 2;
 
-console.log(run_intcode(program)[0]);
+console.log('Day 2 Step 1 answer : ',run_intcode(program)[0]);
 
 export {run_intcode};
