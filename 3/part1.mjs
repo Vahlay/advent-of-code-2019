@@ -78,9 +78,7 @@ const wires = Fs.readFileSync('./3/input','utf-8')
 /** @var {Point} origin */
 const origin = {x : 0, y : 0};
 
-const wires2 = [['R75','D30','R83','U83','L12','D49','R71','U7','L72'],['U62','R66','U55','R34','D71','R55','D58','R83']];
-
-const wiresPoints = wires2.map(instructions => generate_wire_points(origin,instructions).slice(1) /*Removes the origin from the wires points*/);
+const wiresPoints = wires.map(instructions => generate_wire_points(origin,instructions).slice(1) /*Removes the origin from the wires points*/);
 
 const instersections = wiresPoints[0].filter(point => wiresPoints[1].some(point_equals(point)));
 
